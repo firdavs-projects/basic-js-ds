@@ -16,40 +16,37 @@ const { ListNode } = require('../extensions/list-node.js');
 class Queue {
   constructor() {
     this.list = new ListNode();
+    this.size = 0;
   }
 
   getUnderlyingList() {
-    let current = this.list;
-    while (this.list.next) {
-      this.list = this.list.next;
+    if (this.size === 0) {
+      return null;
     }
-    const result = this.list;
-    this.list = current;
-    return result;
-    // remove line with error and write your code here
+    return this.list;
   }
 
   enqueue(value) {
-    let current = this.list;
-    while (this.list.next) {
-      this.list = this.list.next;
+    if (this.size === 0) {
+      this.list = new ListNode(value);
+    } else {
+      let current = this.list;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = new ListNode(value);
     }
-    this.list.next = new ListNode(value);
-    this.list = current;
-    // remove line with error and write your code here
+    this.size++;
   }
 
   dequeue() {
-    let current = this.list;
-    if (this.list.next) {
-      this.list = this.list.next;
-      current.next = null;
-      return current.value;
-    } else {
-      return null;
+    if (this.size === 0) {
+      throw new Error('Queue is empty');
     }
-
-    // remove line with error and write your code here
+    const value = this.list.value;
+    this.list = this.list.next;
+    this.size--;
+    return value;
   }
 }
 
