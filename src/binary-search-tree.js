@@ -14,12 +14,12 @@ class BinarySearchTree {
 
     root() {
         return this.head;
-        // remove line with error and write your code here
     }
 
     add( data ) {
-
-        // remove line with error and write your code here
+        if (this.head === null) {
+            this.head = new Node(data);
+        }
     }
 
     has(/* data */) {
