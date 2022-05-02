@@ -18,7 +18,6 @@ class Stack {
   }
   push(element) {
     this.stack.push(element);
-    // remove line with error and write your code here
   }
 
   pop() {
@@ -26,7 +25,6 @@ class Stack {
       return undefined;
     }
     return this.stack.pop();
-    // remove line with error and write your code here
   }
 
   peek() {
@@ -34,7 +32,6 @@ class Stack {
       return undefined;
     }
     return this.stack[this.stack.length - 1];
-    // remove line with error and write your code here
   }
 }
 
